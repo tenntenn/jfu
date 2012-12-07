@@ -55,7 +55,7 @@ var (
 		ThumbnailMaxWidth:  80,
 		ThumbnailMaxHeight: 80,
 	}
-	imageRegex        = regexp.MustCompile(IMAGE_TYPES)
+	ImageRegex        = regexp.MustCompile(IMAGE_TYPES)
 	FileNotFoundError = errors.New("File Not Found")
 )
 

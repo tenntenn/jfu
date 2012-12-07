@@ -177,7 +177,7 @@ func (h *UploadHandler) get(w http.ResponseWriter, r *http.Request) {
 		"Cache-Control",
 		fmt.Sprintf("public,max-age=%d", h.Conf.ExpirationTime),
 	)
-	if imageRegex.MatchString(fi.Type) {
+	if ImageRegex.MatchString(fi.Type) {
 		w.Header().Add("X-Content-Type-Options", "nosniff")
 	} else {
 		w.Header().Add("Content-Type", "application/octet-stream")
@@ -203,7 +203,7 @@ func (h *UploadHandler) uploadFile(w http.ResponseWriter, p *multipart.Part) (fi
 		fi.Error = "acceptFileTypes"
 		return
 	}
-	isImage := imageRegex.MatchString(fi.Type)
+	isImage := ImageRegex.MatchString(fi.Type)
 	//
 	// Copy into buffers for save and thumbnail generation
 	//
